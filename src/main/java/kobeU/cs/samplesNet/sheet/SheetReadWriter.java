@@ -211,13 +211,15 @@ public class SheetReadWriter {
 
 		/* object の読み書き */
 		Point[] points = { new Point(1, 1), new Point(2, 4), new Point(3, 9), new Point(4, 16) };
-		SampleRecord r1 = new SampleRecord(1234, "tag0:", new SampleJsonObj(points));
-		SampleRecord r0 = target.get("00000000-0000-04d2-0000-00000000138c");
-		System.out.println("get():" + r0);
-		r0.tag = r0.tag.substring(0, 6) + "@" + Calendar.getInstance().getTime();
-		System.out.println("get():" + r0);
+		SampleRecord r0 = new SampleRecord(1234, "tag0:", new SampleJsonObj(points));
 		target.update(r0);
+		SampleRecord r1 = target.get("00000000-0000-04d2-0000-00000000138c");
+		System.out.println("get():" + r1);
+		if(r1==null) return;
+		r1.tag = r1.tag.substring(0, 6) + "@" + Calendar.getInstance().getTime();
+		System.out.println("modified:" + r1);
 		target.update(r1);
+		System.out.println("updated.");
 
 	}
 }
