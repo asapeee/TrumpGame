@@ -34,7 +34,9 @@ import com.google.api.services.sheets.v4.model.ValueRange;
  * spreadsheet 毎にインスタンスを作成。
  * データシートを２つ利用。
  * sheet1 は spreadsheet 風にアクセス。
+ * https://docs.google.com/spreadsheets/d/1RCRcOImuFFMxIhCYz4gDytOzx2fa6cpGPYkKP3KRoOc/edit#gid=0
  * table1 には オブジェクトの一覧を保存し、オブジェクトの追加や更新ができるようなものを作成
+ * https://docs.google.com/spreadsheets/d/1RCRcOImuFFMxIhCYz4gDytOzx2fa6cpGPYkKP3KRoOc/edit#gid=786639789
  * @author kamada
  *
  */
@@ -45,7 +47,7 @@ public class SheetReadWriter {
     /*
      * spreadsheetId0: 各自が利用する spreadsheet の id をいれてくれればと。
      */
-    private static final String spreadsheetId0 = "1p7xBnxSOna-UqvuD4CLLwc7PtHnnSn91SzozVabt2XE";
+    private static final String spreadsheetId0 = "1RCRcOImuFFMxIhCYz4gDytOzx2fa6cpGPYkKP3KRoOc";
 
     /**
      * SCOPES は、spreadsheet などへのアクセス種別を定義.
@@ -111,7 +113,6 @@ public class SheetReadWriter {
         	System.out.println("readTest: begin");
             for (List row : values) {
             	for(Object cell: row) {
-            		System.out.print(" " + cell.getClass());
             		System.out.print(" " + cell);
             	}
             	System.out.println("");
@@ -167,7 +168,6 @@ public class SheetReadWriter {
             return null;
         } else {
             for (List<Object> row : values) {
-            	System.out.println(key + ":" + row.get(0));
             	if(row.get(0).equals(key)) return SampleRecord.restore(row);
             }
             return null;
@@ -191,11 +191,7 @@ public class SheetReadWriter {
         } else {
         	String key = record.id.toString();
             for (List<Object> row : values) {
-             	System.out.println(key + ":" + row.get(0));
-            	if(row.get(0).equals(key)) {
-            		System.out.println("found@"+count);
-            		break;
-            	}
+            	if(row.get(0).equals(key)) break;
             	count++;
             }
         }
