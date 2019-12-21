@@ -41,49 +41,47 @@ import com.google.api.services.sheets.v4.model.ValueRange;
  *
  */
 public class SheetReadWriter {
-    private static final String APPLICATION_NAME = "KobeU SoftDev Sample using QuickStart";
-    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
-    /*
-     * spreadsheetId0: 各自が利用する spreadsheet の id をいれてくれればと。
-     */
-    private static final String spreadsheetId0 = "1RCRcOImuFFMxIhCYz4gDytOzx2fa6cpGPYkKP3KRoOc";
+	private static final String APPLICATION_NAME = "KobeU SoftDev Sample using QuickStart";
+	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+	private static final String TOKENS_DIRECTORY_PATH = "tokens";
+	/*
+	 * spreadsheetId0: 各自が利用する spreadsheet の id をいれてくれればと。
+	 */
+	private static final String spreadsheetId0 = "1RCRcOImuFFMxIhCYz4gDytOzx2fa6cpGPYkKP3KRoOc";
 
-    /**
-     * SCOPES は、spreadsheet などへのアクセス種別を定義.
-     * SCOPES を書き換えた場合は、tokens/StoreCredential を削除して再取得しましょう
-     * sheet から読むだけの場合は、SheetsScopes.SPREADSHEETS_READONLY を使いましょう。
-     * odifying these scopes, delete your previously saved tokens/ folder.
-     */
-    private static final List<String> SCOPES =
-    		Collections.singletonList(SheetsScopes.SPREADSHEETS);
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+	/**
+	 * SCOPES は、spreadsheet などへのアクセス種別を定義.
+	 * SCOPES を書き換えた場合は、tokens/StoreCredential を削除して再取得しましょう
+	 * sheet から読むだけの場合は、SheetsScopes.SPREADSHEETS_READONLY を使いましょう。
+	 * odifying these scopes, delete your previously saved tokens/ folder.
+	 */
+	private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS);
+	private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
-    /**
-     * getCredential は、tutorial からそのまま借用
-     * Creates an authorized Credential object.
-     * @param HTTP_TRANSPORT The network HTTP Transport.
-     * @return An authorized Credential object.
-     * @throws IOException If the credentials.json file cannot be found.
-     */
-    private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
-        // Load client secrets.
-        InputStream in = SheetReadWriter.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-        if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
-        }
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+	/**
+	 * getCredential は、tutorial からそのまま借用
+	 * Creates an authorized Credential object.
+	 * @param HTTP_TRANSPORT The network HTTP Transport.
+	 * @return An authorized Credential object.
+	 * @throws IOException If the credentials.json file cannot be found.
+	 */
+	private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
+		// Load client secrets.
+		InputStream in = SheetReadWriter.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
+		if (in == null) {
+			throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
+		}
+		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
-        // Build flow and trigger user authorization request.
-        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-                .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
-                .setAccessType("offline")
-                .build();
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-    }
-
+		// Build flow and trigger user authorization request.
+		GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+				HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
+						.setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
+						.setAccessType("offline")
+						.build();
+		LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+		return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+	}
 
 	private String spreadsheetId;
 	private Sheets service;
@@ -102,24 +100,25 @@ public class SheetReadWriter {
 	/*
 	 * spreadsheet の指定 range からデータを取得して表示する。
 	 */
-    public void readTest(String range) throws IOException {
-    	ValueRange response = service.spreadsheets().values()
-                .get(spreadsheetId, range)
-                .execute();
-        List<List<Object>> values = response.getValues();
-        if (values == null || values.isEmpty()) {
-            System.out.println("readTest: No Data.");
-        } else {
-        	System.out.println("readTest: begin");
-            for (List row : values) {
-            	for(Object cell: row) {
-            		System.out.print(" " + cell);
-            	}
-            	System.out.println("");
-            }
-            System.out.println("readTest: end");
-        }
-    }
+	public void readTest(String range) throws IOException {
+		ValueRange response = service.spreadsheets().values()
+				.get(spreadsheetId, range)
+				.execute();
+		List<List<Object>> values = response.getValues();
+		if (values == null || values.isEmpty()) {
+			System.out.println("readTest: No Data.");
+		} else {
+			System.out.println("readTest: begin");
+			for (List row : values) {
+				for (Object cell : row) {
+					System.out.print(" " + cell);
+				}
+				System.out.println("");
+			}
+			System.out.println("readTest: end");
+		}
+	}
+
 	/*
 	 * spreadsheet の指定 range にデータを書き込む。
 	 */
@@ -147,80 +146,79 @@ public class SheetReadWriter {
 	 */
 
 	public static final String tableRange = "table1!A1:C";
+
 	private static String nthRow(int i) {
-		return "table1!A"+i+":C";
+		return "table1!A" + i + ":C";
 	}
 
+	/**
+	 * key で指定されたオブジェクトを取得。見つからない場合は null.
+	 * @param key
+	 * @return
+	 * @throws IOException
+	 */
+	public SampleRecord get(String key) throws IOException {
+		ValueRange response = service.spreadsheets().values()
+				.get(spreadsheetId, tableRange)
+				.execute();
+		List<List<Object>> values = response.getValues();
+		if (values == null || values.isEmpty()) {
+			return null;
+		} else {
+			for (List<Object> row : values) {
+				if (row.get(0).equals(key))
+					return SampleRecord.restore(row);
+			}
+			return null;
+		}
+	}
 
+	/**
+	 * record を保存。すでに同じ record が保存されている場合は上書き保存。なければ追加。
+	 * @param record
+	 * @throws IOException
+	 */
+	public void update(SampleRecord record) throws IOException {
+		ValueRange response = service.spreadsheets().values()
+				.get(spreadsheetId, tableRange)
+				.execute();
+		int count = 1;
+		List<List<Object>> values = response.getValues();
+		if (values == null || values.isEmpty()) {
+			/* do nothing */
+		} else {
+			String key = record.id.toString();
+			for (List<Object> row : values) {
+				if (row.get(0).equals(key))
+					break;
+				count++;
+			}
+		}
+		writeRow(nthRow(count), record.toRow());
+	}
 
-    /**
-     * key で指定されたオブジェクトを取得。見つからない場合は null.
-     * @param key
-     * @return
-     * @throws IOException
-     */
-    public SampleRecord get(String key) throws IOException {
-       	ValueRange response = service.spreadsheets().values()
-                .get(spreadsheetId, tableRange)
-                .execute();
-        List<List<Object>> values = response.getValues();
-        if (values == null || values.isEmpty()) {
-            return null;
-        } else {
-            for (List<Object> row : values) {
-            	if(row.get(0).equals(key)) return SampleRecord.restore(row);
-            }
-            return null;
-        }
-    }
+	/**
+	 * main: 簡単な利用例
+	 */
+	public static void main(String... args) throws IOException, GeneralSecurityException {
+		// Build a new authorized API client service.
 
+		SheetReadWriter target = new SheetReadWriter(spreadsheetId0);
 
-    /**
-     * record を保存。すでに同じ record が保存されている場合は上書き保存。なければ追加。
-     * @param record
-     * @throws IOException
-     */
-    public void update(SampleRecord record) throws IOException {
-       	ValueRange response = service.spreadsheets().values()
-                .get(spreadsheetId, tableRange)
-                .execute();
-       	int count = 1;
-        List<List<Object>> values = response.getValues();
-        if (values == null || values.isEmpty()) {
-            /* do nothing */
-        } else {
-        	String key = record.id.toString();
-            for (List<Object> row : values) {
-            	if(row.get(0).equals(key)) break;
-            	count++;
-            }
-        }
-        writeRow(nthRow(count), record.toRow());
-    }
+		/* spreadsheet 風アクセス */
+		target.readTest("sheet1!A2:J");
+		target.writeTest("sheet1!G2");
 
-    /**
-     * main: 簡単な利用例
-     */
-    public static void main(String... args) throws IOException, GeneralSecurityException {
-        // Build a new authorized API client service.
-
-        SheetReadWriter target = new SheetReadWriter(spreadsheetId0);
-
-        /* spreadsheet 風アクセス */
-       target.readTest("sheet1!A2:J");
-       target.writeTest("sheet1!G2");
-
-        /* object の読み書き */
-		Point[] points = { new Point(1,1), new Point(2,4), new Point(3,9), new Point(4,16) };
+		/* object の読み書き */
+		Point[] points = { new Point(1, 1), new Point(2, 4), new Point(3, 9), new Point(4, 16) };
 		SampleRecord r1 = new SampleRecord(1234, "tag0:", new SampleJsonObj(points));
-      	SampleRecord r0 = target.get("00000000-0000-04d2-0000-00000000138c");
-      	System.out.println("get():"+r0);
-      	r0.tag = r0.tag.substring(0, 6)+ "@" + Calendar.getInstance().getTime();
-      	System.out.println("get():"+r0);
-      	target.update(r0);
-      	target.update(r1);
+		SampleRecord r0 = target.get("00000000-0000-04d2-0000-00000000138c");
+		System.out.println("get():" + r0);
+		r0.tag = r0.tag.substring(0, 6) + "@" + Calendar.getInstance().getTime();
+		System.out.println("get():" + r0);
+		target.update(r0);
+		target.update(r1);
 
-
-    }
+	}
 }
 // [END sheets_quickstart]
