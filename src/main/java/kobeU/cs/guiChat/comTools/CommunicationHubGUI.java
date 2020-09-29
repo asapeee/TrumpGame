@@ -1,4 +1,4 @@
-﻿package kobeU.cs.guiChat.comTools;
+package kobeU.cs.guiChat.comTools;
 
 import java.awt.Color;
 import java.awt.Dimension;

@@ -1,4 +1,4 @@
-﻿package kobeU.cs.samplesNet;
+package kobeU.cs.samplesNet;
 
 import java.io.PrintWriter;
 import java.io.Serializable;

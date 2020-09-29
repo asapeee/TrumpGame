@@ -1,4 +1,4 @@
-﻿package kobeU.cs.guiChat.app;
+package kobeU.cs.guiChat.app;
 
 import java.io.PrintWriter;
 import java.io.Serializable;

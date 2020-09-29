@@ -1,4 +1,4 @@
-﻿package kobeU.cs.samplesIO;
+package kobeU.cs.samplesIO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

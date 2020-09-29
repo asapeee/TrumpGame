@@ -1,4 +1,4 @@
-﻿package kobeU.cs.samplesThread;
+package kobeU.cs.samplesThread;
 import java.util.Scanner;
 
 public class RunnableSample {

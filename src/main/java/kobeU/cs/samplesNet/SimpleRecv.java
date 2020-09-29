@@ -1,4 +1,4 @@
-﻿package kobeU.cs.samplesNet;
+package kobeU.cs.samplesNet;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

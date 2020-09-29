@@ -1,4 +1,4 @@
-﻿package kobeU.cs.guiChat.comTools;
+package kobeU.cs.guiChat.comTools;
 
 import java.io.IOException;
 import java.net.Socket;

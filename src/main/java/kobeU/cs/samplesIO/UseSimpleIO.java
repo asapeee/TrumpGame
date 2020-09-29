@@ -1,4 +1,4 @@
-﻿package kobeU.cs.samplesIO;
+package kobeU.cs.samplesIO;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-﻿package kobeU.cs.guiChat.app;
+package kobeU.cs.guiChat.app;
 
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -30,7 +30,7 @@ public class Board extends JFrame {
 
 	/**
 	 * This method initializes this
-	 * 
+	 *
 	 * @return void
 	 */
 	private void initialize() {
@@ -48,7 +48,7 @@ public class Board extends JFrame {
 
 	/**
 	 * This method initializes jContentPane
-	 * 
+	 *
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJContentPane() {
@@ -62,9 +62,9 @@ public class Board extends JFrame {
 	}
 
 	/**
-	 * This method initializes upperPanel	
-	 * 	
-	 * @return javax.swing.JPanel	
+	 * This method initializes upperPanel
+	 *
+	 * @return javax.swing.JPanel
 	 */
 	private JPanel getUpperPanel() {
 		if (upperPanel == null) {
@@ -81,9 +81,9 @@ public class Board extends JFrame {
 	}
 
 	/**
-	 * This method initializes jTextField	
-	 * 	
-	 * @return javax.swing.JTextField	
+	 * This method initializes jTextField
+	 *
+	 * @return javax.swing.JTextField
 	 */
 	private JTextField getJTextField() {
 		if (jTextField == null) {
@@ -99,9 +99,9 @@ public class Board extends JFrame {
 	}
 
 	/**
-	 * This method initializes jScrollPane	
-	 * 	
-	 * @return javax.swing.JScrollPane	
+	 * This method initializes jScrollPane
+	 *
+	 * @return javax.swing.JScrollPane
 	 */
 	private JScrollPane getJScrollPane() {
 		if (jScrollPane == null) {
@@ -113,9 +113,9 @@ public class Board extends JFrame {
 	}
 
 	/**
-	 * This method initializes jTextArea	
-	 * 	
-	 * @return javax.swing.JTextArea	
+	 * This method initializes jTextArea
+	 *
+	 * @return javax.swing.JTextArea
 	 */
 	private JTextArea getJTextArea() {
 		if (jTextArea == null) {
@@ -136,8 +136,8 @@ public class Board extends JFrame {
 		jTextArea.insert(text+"\n", 0);
 		jTextArea.setCaretPosition(0);
 	}
-	
-	
+
+
 	@Override
 	public void setVisible(boolean flag) {
 		if((manager==null)&& flag) {
