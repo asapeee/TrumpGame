@@ -37,9 +37,9 @@ public class UseSampleI {
 	 * @param icol
 	 */
 	public static void addIntegerSamples(Collection<Integer> icol) {
-		icol.add(new Integer(3));
-		icol.add(new Integer(15));
-		icol.add(new Integer(7));
+		icol.add(Integer.valueOf(3));
+		icol.add(Integer.valueOf(15));
+		icol.add(Integer.valueOf(7));
 		icol.add(8);
 		// Object が来るところに、int がかかれていると、
 		// 勝手に new Integer(8) をしてくれます。
