@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="kobeU.cs.samplesGUI.PaintTool2">
+  <grid id="27dc6" binding="contentPane" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="46c8e" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="74cdc" class="javax.swing.JButton" binding="btnUndo">
+            <constraints/>
+            <properties>
+              <text value="undo" noi18n="true"/>
+            </properties>
+          </component>
+          <component id="c9255" class="javax.swing.JButton" binding="btnReset">
+            <constraints/>
+            <properties>
+              <text value="reset" noi18n="true"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="9b7e7" class="kobeU.cs.samplesGUI.CustomView" binding="customView">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <preferredSize width="600" height="400"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
