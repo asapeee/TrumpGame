@@ -15,9 +15,8 @@ public class UseBufferedIO {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        String from = (args.length < 1) ? "sample.in" : args[0];
+        String from = (args.length < 1) ? "src/main/resources/sampleIO/sample.in": args[0];
         String to = (args.length < 2) ? "sampleOut2.txt" : args[1];
-
         copyfile(from, to);
     }
 
@@ -31,7 +30,7 @@ public class UseBufferedIO {
             String line;
             int i = 0;
             while ((line = in.readLine()) != null) { /* 一行read */
-                String outline = i + ":" + line; /* 行番号つけて */
+                String outline = i + " " + line; /* 行番号つけて */
                 System.out.println(outline); /* 標準出力にprint */
                 out.println(outline); /* ファイルにもprint */
                 i++;

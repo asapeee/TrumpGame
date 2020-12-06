@@ -11,7 +11,7 @@ public class UseScanner {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        String filename = (args.length < 1) ? "sampleFIles/sampleUTF8.txt" : args[0];
+        String filename = (args.length < 1) ? "src/main/resources/sampleIO/sample.in": args[0];
         String code = (args.length < 2) ? "UTF8" : args[1];
         process(filename, code);
     }

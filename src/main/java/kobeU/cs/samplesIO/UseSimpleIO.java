@@ -17,8 +17,8 @@ public class UseSimpleIO {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        String from = (args.length < 1) ? "sample.in" : args[0];
-        String to = (args.length < 2) ? "sampleOut.txt" : args[1];
+        String from = (args.length < 1) ? "src/main/resources/sampleIO/sample.in": args[0];
+        String to = (args.length < 2) ? "sample.out": args[1];
         copyfile(from, to);
     }
 
