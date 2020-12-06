@@ -16,7 +16,7 @@ public class UseBufferedIO {
      */
     public static void main(String[] args) throws IOException {
         String from = (args.length < 1) ? "src/main/resources/sampleIO/sample.in": args[0];
-        String to = (args.length < 2) ? "sampleOut2.txt" : args[1];
+        String to = (args.length < 2) ? "sample2.out" : args[1];
         copyfile(from, to);
     }
 
