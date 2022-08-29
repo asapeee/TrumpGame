@@ -10,12 +10,12 @@ public class UseSampleP1 {
 
     public static void main(String[] args) {
         /* TreeSet で実験0 */
-        TreeSet<MyPoint> pset0 = new TreeSet<MyPoint>(new MyPointComp0()); /* RecordComp0 は比較器 */
+        TreeSet<MyPoint> pset0 = new TreeSet<>(new MyPointComp0()); /* RecordComp0 は比較器 */
         addRecordSamples(pset0); /* 要素を詰める */
         System.out.println("pset0: " + pset0); /* 表示 */
 
         /* TreeSet で実験1 */
-        TreeSet<MyPoint> pset1 = new TreeSet<MyPoint>(new Comparator<MyPoint>() {
+        TreeSet<MyPoint> pset1 = new TreeSet<>(new Comparator<MyPoint>() {
             /* 比較器定義をその場で書く方法 */
             public int compare(MyPoint o1, MyPoint o2) {
                 int sum1 = o1.sum(), sum2 = o2.sum();
@@ -28,7 +28,7 @@ public class UseSampleP1 {
         System.out.println("pset1: " + pset1); /* 表示 */
 
         /* lambda function をつかった表記 */
-        TreeSet<MyPoint> pset2 = new TreeSet<MyPoint>((MyPoint o1, MyPoint o2) -> {
+        TreeSet<MyPoint> pset2 = new TreeSet<>((MyPoint o1, MyPoint o2) -> {
             int sum1 = o1.sum(), sum2 = o2.sum();
             if (sum1 != sum2)
                 return Integer.compare(sum2, sum1);
@@ -38,16 +38,16 @@ public class UseSampleP1 {
         System.out.println("pset2: " + pset2); /* 表示 */
 
         /* 関数型っぽい Comparator の利用例 */
-        TreeSet<MyPoint> pset3 = new TreeSet<MyPoint>(
+        TreeSet<MyPoint> pset3 = new TreeSet<>(
                 Comparator.comparing(MyPoint::sum)
-                          .thenComparingInt((MyPoint o) -> o.y).reversed());
+                        .thenComparingInt((MyPoint o) -> o.y).reversed());
         addRecordSamples(pset3); /* 要素をつめて */
         System.out.println("pset3: " + pset3); /* 表示 */
 
         /* Collections.sort を利用してみる */
-        ArrayList<MyPoint> list = new ArrayList<MyPoint>();
+        ArrayList<MyPoint> list = new ArrayList<>();
         addRecordSamples(list);
-        Collections.sort(list, new MyPointComp0()); /* 実験０と同じ比較器を利用 */
+        list.sort(new MyPointComp0()); /* 実験０と同じ比較器を利用 */
         System.out.println("list: " + list); /* 表示 */
     }
 

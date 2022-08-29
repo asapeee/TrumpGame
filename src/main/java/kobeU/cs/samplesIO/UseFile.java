@@ -21,13 +21,13 @@ public class UseFile {
     private static void processFileOrDir(File file) throws IOException {
         if (!file.exists())
             return;
-        if (file.isFile()) {
-            System.out.println(file.getCanonicalPath());
-        } else {
+        if (file.isDirectory()) {
             File[] children = file.listFiles();
             for (File child : children) {
                 processFileOrDir(child);
             }
+        } else {
+            System.out.println(file.getCanonicalPath());
         }
     }
 }

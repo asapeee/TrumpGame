@@ -7,7 +7,7 @@ public class UseSampleP0 {
 
     public static void main(String[] args) {
         /* ArrayList で実験 */
-        ArrayList<MyPoint> plist = new ArrayList<MyPoint>();
+        ArrayList<MyPoint> plist = new ArrayList<>();
         addRecordSamples(plist); /* 要素を詰める */
         System.out.println("plist: " + plist); /* 表示 */
     }

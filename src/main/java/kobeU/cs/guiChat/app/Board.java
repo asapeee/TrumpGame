@@ -30,8 +30,6 @@ public class Board extends JFrame {
 
 	/**
 	 * This method initializes this
-	 *
-	 * @return void
 	 */
 	private void initialize() {
 		this.setSize(300, 300);

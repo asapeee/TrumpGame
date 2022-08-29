@@ -8,7 +8,7 @@ public class UseSampleI {
 
     public static void main(String[] args) {
         /* まずは、ArrayList で実験 */
-        ArrayList<Integer> ilist = new ArrayList<Integer>();
+        ArrayList<Integer> ilist = new ArrayList<>();
         addIntegerSamples(ilist); /* 要素をつめて */
         System.out.print("print ilist:");
         for (Integer i : ilist) { /* 要素を順番に表示 */
@@ -19,7 +19,7 @@ public class UseSampleI {
         System.out.println("ArrayList.toString() for ilist: " + ilist);
 
         /* 次は、TreeSet で実験 */
-        TreeSet<Integer> iset = new TreeSet<Integer>();
+        TreeSet<Integer> iset = new TreeSet<>();
         addIntegerSamples(iset); /* 要素をつめて */
         System.out.print("print iset:");
         for (Integer i : iset) { /* 要素を順番に表示 */

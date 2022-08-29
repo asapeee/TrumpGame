@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 
 public class CommunicationHub {
-	ArrayList<ClientProxy> clients = new ArrayList<ClientProxy>();
+	ArrayList<ClientProxy> clients = new ArrayList<>();
 	private ServerSocket ss;
-	private CommunicationHubGUI board;
+	private final CommunicationHubGUI board;
 	CommunicationHub() {
 		board = new CommunicationHubGUI();
 		board.setManager(this);

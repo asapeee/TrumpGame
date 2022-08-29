@@ -15,8 +15,8 @@ public class Communicator {
 	public static final int DefaultPort = 50001;
 	public static final String DefaultHostName = "localhost";
 	Socket socket;
-	ObjectOutputStream out;
-	ObjectInputStream in;
+	final ObjectOutputStream out;
+	final ObjectInputStream in;
 
 	private boolean outIsClosed=false,inIsClosed=false;
 
@@ -110,10 +110,7 @@ public class Communicator {
 				} else {
 					return obj;
 				}
-			} catch (IOException e) {
-				closeAll();
-				throw e;
-			} catch (ClassNotFoundException e) {
+			} catch (IOException | ClassNotFoundException e) {
 				closeAll();
 				throw e;
 			}

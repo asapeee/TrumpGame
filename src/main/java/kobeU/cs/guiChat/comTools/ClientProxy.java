@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class ClientProxy implements Runnable {
 	protected CommunicationHub hub;
-	private String name;
+	private final String name;
 	protected Communicator comm;
 
 	public ClientProxy(String name, Socket socket, CommunicationHub hub) throws IOException {
@@ -46,10 +46,7 @@ public class ClientProxy implements Runnable {
 				}
 				hub.process(msg, this);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			hub.remove(this);
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 			hub.remove(this);
 		}

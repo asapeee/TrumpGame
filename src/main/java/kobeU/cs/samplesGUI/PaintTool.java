@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 public class PaintTool extends JFrame {
 
-    private JPanel contentPane;
+    private final JPanel contentPane;
 
     /**
      * Launch the application.

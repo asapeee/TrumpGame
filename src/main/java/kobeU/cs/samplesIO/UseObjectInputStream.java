@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class UseObjectInputStream {
-    static final String FILENAME = "sample.ser";
+
 
     /**
      * file から、obj を次々serializeして、toString()

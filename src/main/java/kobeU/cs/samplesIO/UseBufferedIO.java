@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class UseBufferedIO {
-    static final int BUFSIZE = 0x1000; /* 仮に4KB */
-
     /**
      * テキストファイルを読み込んで、行番号をつけて、ファイルと標準出力に出力
      *

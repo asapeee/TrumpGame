@@ -37,8 +37,7 @@ public class SetupDialog extends JDialog {
 	private JTextField echoArea = null;
 
 	/**
-	 * @param commManager
-	 * @param owner
+	 * @param frame
 	 */
 	public SetupDialog(Frame frame) {
 		super(frame);
@@ -48,7 +47,6 @@ public class SetupDialog extends JDialog {
 	/**
 	 * This method initializes this
 	 *
-	 * @return void
 	 */
 	private void initialize() {
 		this.setSize(300, 200);

@@ -16,7 +16,7 @@ public class Solver {
     public static final double OneHop = 10.00001;
 
     void setupBoard(Scanner in, int n) {
-        points = new ArrayList<Point>(n);
+        points = new ArrayList<>(n);
         for(int i=0; i< n; i++) {
             int x = in.nextInt();
             int y = in.nextInt();
@@ -42,7 +42,7 @@ public class Solver {
     	File inFile = new File(dataDir, "sample.in");
         File ansFile = new File(dataDir, "sample.ans");
         Scanner in = new Scanner(new FileReader(inFile));
-        Scanner ansIn = new Scanner(new FileReader(ansFile));;
+        Scanner ansIn = new Scanner(new FileReader(ansFile));
 
         int totalCount = 0, failCount = 0;
         while(true) {

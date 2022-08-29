@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 public class SampleDrawPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	List<BufferedImage> images = new ArrayList<BufferedImage>();
+	List<BufferedImage> images = new ArrayList<>();
 	public List<BufferedImage> getImages() {
 		return images;
 	}

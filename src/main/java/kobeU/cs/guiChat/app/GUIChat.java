@@ -1,10 +1,7 @@
 package kobeU.cs.guiChat.app;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-
 import javax.swing.SwingUtilities;
-
 import kobeU.cs.guiChat.comTools.Communicator;
 
 public class GUIChat {
@@ -22,16 +19,16 @@ public class GUIChat {
 	 * @param msg
 	 */
 	void displayMsgOnBoard(String sender, ObjMessage2 msg) {
-		displayMsgInner(sender + ": " + msg.body + "[" + msg.date + "]",false);
+		displayMsgInner(sender + ": " + msg.body + "[" + msg.date + "]");
 	}
 	/**
 	 * System からのメッセージを、GUI および標準出力に表示
 	 */
 	void displaySysMsg(String text) {
-		displayMsgInner("Sys: " + text, true);
+		displayMsgInner("Sys: " + text);
 	}
 
-	void displayMsgInner(final String text, final boolean sys) {
+	void displayMsgInner(final String text) {
 		System.out.println(text);
 		if(SwingUtilities.isEventDispatchThread()) {
 			board.addMessage(text);
@@ -98,8 +95,6 @@ public class GUIChat {
 
 	/**
 	 *  manager の全処理を順に行う。
-	 * @throws InvocationTargetException
-	 * @throws InterruptedException
 	 */
 	void exec() {
 		try {

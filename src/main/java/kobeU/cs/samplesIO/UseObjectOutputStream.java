@@ -23,7 +23,7 @@ public class UseObjectOutputStream {
     }
 
     private static ArrayList<String> createSampleObj() {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         result.add("java");
         result.add("c");
         result.add("python");

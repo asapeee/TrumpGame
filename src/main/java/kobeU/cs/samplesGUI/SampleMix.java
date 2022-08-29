@@ -25,7 +25,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class SampleMix extends JFrame {
 
-    private JPanel contentPane;
+    private final JPanel contentPane;
 
     /**
      * Launch the application.
@@ -52,8 +52,8 @@ public class SampleMix extends JFrame {
     }
 
     // 画像のセットアップ
-	ArrayList<BufferedImage> cardImages = new ArrayList<BufferedImage>();
-	private SampleDrawPanel sampleDrawPanel;
+	ArrayList<BufferedImage> cardImages = new ArrayList<>();
+	private final SampleDrawPanel sampleDrawPanel;
 
 	private void imageSetup() {
 		File dir = new File(SampleMix.class.getResource("/img/cards/").getFile());
