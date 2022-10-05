@@ -1,4 +1,4 @@
-package kobeU.cs.kadaiA;
+package kobeU.cs.kadaiA21;
 
 import java.awt.Point;
 import java.io.File;
