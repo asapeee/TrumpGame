@@ -16,22 +16,24 @@ public class SortSample {
         System.out.println("Before: " + list);
         Collections.sort(list);
         System.out.println("Sorted: " + list);
+        /*
+        list.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+                return Integer.compare(a, b);
+            }
+        });
+        */
         list.sort((a, b)->{
             return Integer.compare(b, a);
         });
+
         System.out.println("Sorted Descendant: " + list);
         final int target = 200;
         list.sort((a, b)->{
             return Integer.compare(Math.abs(a-target), Math.abs(b-target));
         });
-        /*
-        list.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer a, Integer b) {
-                return Integer.compare(Math.abs(a-target), Math.abs(b-target));
-            }
-        });
-        */
+
         System.out.println("Sorted from target("+target+"): "+ list);
 
 
