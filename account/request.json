@@ -1,0 +1,5 @@
+{
+  "returnSecureToken": true,
+  "email": "EMAIL_ADDRESS_FOR_USER_ACCOUNT",
+  "password": "USER_PASSWORD"
+}
