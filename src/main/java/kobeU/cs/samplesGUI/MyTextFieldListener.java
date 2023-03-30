@@ -12,6 +12,6 @@ public class MyTextFieldListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent arg0) {
 		simple1.echoText();
-	}
+    }
 
 }

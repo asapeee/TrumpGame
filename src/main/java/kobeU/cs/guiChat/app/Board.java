@@ -90,7 +90,7 @@ public class Board extends JFrame {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					manager.sendMsg(jTextField.getText());
 					jTextField.setText("");
-				}
+                }
 			});
 		}
 		return jTextField;

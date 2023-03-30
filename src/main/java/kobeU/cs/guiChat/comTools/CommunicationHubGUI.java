@@ -124,8 +124,7 @@ public class CommunicationHubGUI extends JFrame {
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					if(manager!= null)
-						manager.serverTermination();
-				}
+						manager.serverTermination();}
 			});
 		}
 		return jButton;

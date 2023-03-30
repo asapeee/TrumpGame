@@ -172,7 +172,8 @@ public class SetupDialog extends JDialog {
 					boolean asServer = jCheckBox.isSelected();
 					hostnameTextField.setEditable(!asServer);
 					hostnameTextField.setForeground(asServer ? Color.lightGray : Color.black);
-				}
+                    //return null;
+                }
 			});
 		}
 		return jCheckBox;
@@ -191,7 +192,7 @@ public class SetupDialog extends JDialog {
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					checkinputs();
-				}
+                }
 			});
 		}
 		return jButton;

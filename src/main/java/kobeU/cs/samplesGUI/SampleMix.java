@@ -56,7 +56,7 @@ public class SampleMix extends JFrame {
 	private final SampleDrawPanel sampleDrawPanel;
 
 	private void imageSetup() {
-		File dir = new File(SampleMix.class.getResource("/img/cards/").getFile());
+		File dir = new File("src/main/resources/img/cards/");
 		for(File file: dir.listFiles()) {
 			try { // 画像としての取り込みを計り
 				BufferedImage img = ImageIO.read(file);
@@ -106,7 +106,7 @@ public class SampleMix extends JFrame {
         mnDownload.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		saveImg();
-        	}
+            }
         });
         menuBar.add(mnDownload);
         contentPane = new JPanel();
@@ -121,9 +121,9 @@ public class SampleMix extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		saveImg();
-        	}
+            }
         });
-        btnNewButton.setIcon(new ImageIcon(SampleMix.class.getResource("/img/button_download2.png")));
+        btnNewButton.setIcon(new ImageIcon(SampleMix.class.getResource("/img/cards/card_club_01.png")));
         setupPanel.add(btnNewButton);
 
         sampleDrawPanel = new SampleDrawPanel();
